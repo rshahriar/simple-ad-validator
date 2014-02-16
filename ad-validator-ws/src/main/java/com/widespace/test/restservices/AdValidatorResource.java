@@ -18,6 +18,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * Web service class resolves path 'validate' and takes a GET
+ * query parameter for processing validation status request.
+ */
+
 @Path("validate")
 public class AdValidatorResource {
 
@@ -39,15 +44,17 @@ public class AdValidatorResource {
         boolean appValid = false;
         Stopwatch timer = Stopwatch.createStarted();
         try {
-            // Check on cache - if found in cache then return the cached one
-            // Else the cache will automatically load the Entity from DB
+            /**
+             * Check on cache - if found in cache then return the cached one
+             * Else the cache will automatically load the Entity from DB
+             */
             Optional<AdStatusEntity> value = cacheManager.getEntity(uuid);
             if (value.isPresent()) {
                 AdStatusEntity adStatusEntity = value.get();
                 appValid = adStatusEntity.isAppStatus();
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            logger.error("Unable to process validation status request: " + ex.getMessage());
         }
         logger.info("Processing Time: " + timer.stop());
         return new AppStatusResponse(uuid, appValid);

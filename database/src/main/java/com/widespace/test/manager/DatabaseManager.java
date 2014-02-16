@@ -10,6 +10,9 @@ import java.util.UUID;
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
+/**
+ * Database manipulator object
+ */
 public class DatabaseManager {
 
     private Provider<EntityManager> entityManagerProvider;

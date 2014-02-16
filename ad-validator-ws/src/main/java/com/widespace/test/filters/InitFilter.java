@@ -14,6 +14,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+/**
+ * This class initializes the DatabaseManager and CacheManager classes
+ */
 @Singleton
 public class InitFilter implements Filter {
 

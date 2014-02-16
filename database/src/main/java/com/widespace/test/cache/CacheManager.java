@@ -10,6 +10,10 @@ import com.widespace.test.models.AdStatusEntity;
 
 import javax.inject.Inject;
 
+/**
+ * This CacheManager uses Guava LoadingCache for loading not existing objects
+ * from Database. This cache is local to each run of the Server instance.
+ */
 public class CacheManager {
 
     private static final int MAX_SIZE = 1000;

@@ -1,3 +1,8 @@
+/**
+ * @TODO: Implement test cases using Jersey-test-framework.
+ * Reason for leaving it now is lack of Google Guice Injection Support.
+ */
+
 /*
 package com.widespace.test;
 

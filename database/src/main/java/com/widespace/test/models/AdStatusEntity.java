@@ -5,8 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created with IntelliJ IDEA. User: rakib Date: 2/16/14 Time: 1:56 AM To change this template use
- * File | Settings | File Templates.
+ * Entity class generated from Database Table (widespace)
  */
 @javax.persistence.Table(name = "ad_status", schema = "", catalog = "widespace")
 @Entity

@@ -16,6 +16,10 @@ import javax.ws.rs.core.UriBuilder;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * This class tests Server response with checking validity of the JSON body.
+ * This test must run when the Server is running.
+ */
 public class AdValidatorManualTest {
 
     private static Logger logger = Logger.getLogger(AdValidatorManualTest.class);

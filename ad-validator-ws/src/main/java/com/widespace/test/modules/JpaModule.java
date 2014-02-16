@@ -1,13 +1,17 @@
 package com.widespace.test.modules;
 
-import com.widespace.test.cache.CacheManager;
-import com.widespace.test.manager.DatabaseManager;
-
 import com.google.inject.Scopes;
 import com.google.inject.persist.PersistFilter;
 import com.google.inject.persist.jpa.JpaPersistModule;
 import com.google.inject.servlet.ServletModule;
 
+import com.widespace.test.cache.CacheManager;
+import com.widespace.test.manager.DatabaseManager;
+
+/**
+ * Persistent module, we bind DatabaseManager and call the PersistFilter
+ * to start JpaPersisModule service.
+ */
 public class JpaModule extends ServletModule {
 
     @Override

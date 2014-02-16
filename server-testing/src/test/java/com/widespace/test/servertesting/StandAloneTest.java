@@ -22,6 +22,11 @@ import javax.ws.rs.core.UriBuilder;
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * This whole module is only for the purpose of testing the ad-validator-ws
+ * module which produces a .war file. This test case runs a Jetty instance,
+ * installs the war file into it and makes a REST call to check response.
+ */
 public class StandAloneTest {
 
     private static final Logger logger = Logger.getLogger(StandAloneTest.class);
@@ -80,10 +85,18 @@ public class StandAloneTest {
 
     private void addWar(ContextHandlerCollection contexts, String name) throws Exception {
         String workingDir = System.getProperty("user.dir");
+        String osName = System.getProperty("os.name").toLowerCase();
+        String warPath = "";
+        if (osName.indexOf("win") >= 0) {
+            warPath = workingDir + "\\..\\ad-validator-ws\\target\\" + name;
+        } else {
+            warPath = workingDir + "/../ad-validator-ws/target/" + name;
+        }
+
         WebAppContext wac = new WebAppContext();
         wac.setServer(server);
         wac.setContextPath("/");
-        wac.setWar(workingDir + "\\..\\ad-validator-ws\\target\\" + name);
+        wac.setWar(warPath);
         wac.setParentLoaderPriority(false);
         contexts.addHandler(wac);
     }
